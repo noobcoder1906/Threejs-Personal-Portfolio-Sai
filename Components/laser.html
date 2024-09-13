@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laser Pointer</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+            cursor: none;
+        }
+
+        .laser-pointer {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background-color: red;
+            border-radius: 50%;
+            box-shadow: 0 0 20px red;
+            pointer-events: none;
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+<body>
+    <div id="laser" class="laser-pointer"></div>
+    <script>
+        const laserPointer = document.getElementById('laser');
+        document.addEventListener('mousemove', (event) => {
+            const mouseX = event.clientX;
+            const mouseY = event.clientY;
+            laserPointer.style.left = `${mouseX}px`;
+            laserPointer.style.top = `${mouseY}px`;
+        });
+    </script>
+</body>
+</html>
